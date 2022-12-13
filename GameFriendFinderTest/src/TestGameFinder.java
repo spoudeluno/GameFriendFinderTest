@@ -113,6 +113,7 @@ public class TestGameFinder {
 	   public void testGames() throws Exception {
 		   	  driver.get("http://ec2-3-21-129-247.us-east-2.compute.amazonaws.com:8080/GameFriendFinder/MainPage.html"); 
 			  driver.manage().window().maximize();
+			  Thread.sleep(2000);
 			  driver.findElement(By.xpath("//div[@class='user']/a[@href='http://ec2-52-14-70-5.us-east-2.compute.amazonaws.com:8080/game-page/GamePage']")).click();
 			  Thread.sleep(2000);
 			  driver.findElement(By.xpath("//input[@name='search']")).sendKeys("V");

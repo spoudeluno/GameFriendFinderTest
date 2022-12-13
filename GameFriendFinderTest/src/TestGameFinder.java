@@ -45,6 +45,28 @@ public class TestGameFinder {
 			  driver.findElement(By.xpath("//input[@value='Submit']")).click();
 			  Thread.sleep(2000);
 		 }
+	   @Test
+	   public void testGames() throws Exception {
+		   	  driver.get("http://ec2-52-14-70-5.us-east-2.compute.amazonaws.com:8080/game-page/GamePage"); 
+			  driver.manage().window().maximize();
+			  Thread.sleep(2000);
+	
+			  String expected = "VALORANT";
+			  String result = driver.findElement(By.xpath("//div[@style='text-align: center;']/div")).getText();
+			  Assert.assertEquals(expected, result);			  
+			  driver.findElement(By.xpath("//input[@name='search']")).sendKeys("Stardew");
+			  driver.findElement(By.xpath("//input[@value='Search Game']")).click();
+			  Thread.sleep(2000);
+			  String expected1 = "Stardew Valley";
+			  String result1 = driver.findElement(By.xpath("//div[@style='text-align: center;']/div")).getText();
+			  Assert.assertEquals(expected1, result1);
+			  driver.findElement(By.xpath("//input[@name='search']")).sendKeys("Among");
+			  driver.findElement(By.xpath("//input[@value='Search Game']")).click();
+			  Thread.sleep(2000);
+			  String expected2 = "Among Us";
+			  String result2 = driver.findElement(By.xpath("//div[@style='text-align: center;']/div")).getText();
+			  Assert.assertEquals(expected2, result2);
+		 }
 	   
 	   @Test
 	   public void testSeeUsers() throws Exception {

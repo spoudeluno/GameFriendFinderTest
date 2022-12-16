@@ -50,7 +50,7 @@ public class TestGameFinder {
 	   }
 	   
 	   @Test
-	   public void testServiceAndContactPage() throws Exception {
+	   public void testServicePage() throws Exception {
 		  driver.get("http://ec2-3-21-129-247.us-east-2.compute.amazonaws.com:8080/GameFriendFinder/MainPage.html"); 
 		  driver.manage().window().maximize();
 		  Thread.sleep(2000);
@@ -65,6 +65,13 @@ public class TestGameFinder {
 		  String result2 = driver.findElement(By.xpath("//body/div/div/div/h2")).getText();
 		  Thread.sleep(2000);
 		  Assert.assertEquals(expected2, result2);
+	   }
+	   
+	   @Test
+	   public void testContactPage() throws Exception {
+		  driver.get("http://ec2-3-21-129-247.us-east-2.compute.amazonaws.com:8080/GameFriendFinder/MainPage.html"); 
+		  driver.manage().window().maximize();
+		  Thread.sleep(2000);
 		  driver.findElement(By.xpath("//div[@class='menu']/a[@href='/GameFriendFinder/contact.html']")).click();
 		  Thread.sleep(2000);
 		  String expected3 = "CONTACT US VIA EMAIL. 1234@UNOMAHA.EDU";
@@ -110,7 +117,7 @@ public class TestGameFinder {
 		 }
 	   
 	   @Test
-	   public void testGames() throws Exception {
+	   public void testGamesone() throws Exception {
 		   	  driver.get("http://ec2-3-21-129-247.us-east-2.compute.amazonaws.com:8080/GameFriendFinder/MainPage.html"); 
 			  driver.manage().window().maximize();
 			  Thread.sleep(2000);
@@ -124,6 +131,14 @@ public class TestGameFinder {
 			  String result = driver.findElement(By.xpath("//div[@style='text-align: center;']/div")).getText();
 			  Thread.sleep(2000);
 			  Assert.assertEquals(expected, result);			  
+		 }
+	   @Test
+	   public void testGamesTwo() throws Exception {
+		   	  driver.get("http://ec2-3-21-129-247.us-east-2.compute.amazonaws.com:8080/GameFriendFinder/MainPage.html"); 
+			  driver.manage().window().maximize();
+			  Thread.sleep(2000);
+			  driver.findElement(By.xpath("//div[@class='user']/a[@href='http://ec2-52-14-70-5.us-east-2.compute.amazonaws.com:8080/game-page/GamePage']")).click();
+			  Thread.sleep(2000);		  
 			  driver.findElement(By.xpath("//input[@name='search']")).sendKeys("Stardew");
 			  Thread.sleep(2000);
 			  driver.findElement(By.xpath("//input[@value='Search Game']")).click();
@@ -132,24 +147,34 @@ public class TestGameFinder {
 			  String result1 = driver.findElement(By.xpath("//div[@style='text-align: center;']/div")).getText();
 			  Thread.sleep(2000);
 			  Assert.assertEquals(expected1, result1);
-			  driver.findElement(By.xpath("//input[@name='search']")).sendKeys("Among");
+		 }
+	   
+	   @Test
+	   public void testGamesThree() throws Exception {
+		   	  driver.get("http://ec2-3-21-129-247.us-east-2.compute.amazonaws.com:8080/GameFriendFinder/MainPage.html"); 
+			  driver.manage().window().maximize();
+			  Thread.sleep(2000);
+			  driver.findElement(By.xpath("//div[@class='user']/a[@href='http://ec2-52-14-70-5.us-east-2.compute.amazonaws.com:8080/game-page/GamePage']")).click();
+			  Thread.sleep(2000);		  
+			  driver.findElement(By.xpath("//input[@name='search']")).sendKeys("I");
 			  Thread.sleep(2000);
 			  driver.findElement(By.xpath("//input[@value='Search Game']")).click();
 			  Thread.sleep(2000);
-			  String expected2 = "Among Us";
-			  String result2 = driver.findElement(By.xpath("//div[@style='text-align: center;']/div")).getText();
-			  Assert.assertEquals(expected2, result2);
-			  driver.findElement(By.xpath("//input[@name='search']")).sendKeys("Fort");
+		 }
+	   @Test
+	   public void testGamesfour() throws Exception {
+		   	  driver.get("http://ec2-3-21-129-247.us-east-2.compute.amazonaws.com:8080/GameFriendFinder/MainPage.html"); 
+			  driver.manage().window().maximize();
+			  Thread.sleep(2000);
+			  driver.findElement(By.xpath("//div[@class='user']/a[@href='http://ec2-52-14-70-5.us-east-2.compute.amazonaws.com:8080/game-page/GamePage']")).click();
+			  Thread.sleep(2000);
+			  driver.findElement(By.xpath("//input[@name='search']")).sendKeys("Fortnite");
 			  Thread.sleep(2000);
 			  driver.findElement(By.xpath("//input[@value='Search Game']")).click();
 			  Thread.sleep(2000);
 			  String expected3 = "Fortnite";
 			  String result3 = driver.findElement(By.xpath("//div[@style='text-align: center;']/div")).getText();
 			  Assert.assertEquals(expected3, result3);
-			  driver.findElement(By.xpath("//input[@name='search']")).sendKeys("I");
-			  Thread.sleep(2000);
-			  driver.findElement(By.xpath("//input[@value='Search Game']")).click();
-			  Thread.sleep(2000);
 		 }
 	   
 	   @Test

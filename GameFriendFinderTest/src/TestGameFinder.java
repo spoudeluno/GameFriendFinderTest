@@ -93,11 +93,11 @@ public class TestGameFinder {
 			  driver.findElement(By.xpath("//div[@class='user']/a[@href='/GameFriendFinder/register.html']")).click();
 			  Thread.sleep(2000);
 			  
-			  driver.findElement(By.xpath("//input[@name='FirstName']")).sendKeys("Suraj");
+			  driver.findElement(By.xpath("//input[@name='FirstName']")).sendKeys("South");
 			  Thread.sleep(2000);
 			  driver.findElement(By.xpath("//input[@name='LastName']")).sendKeys("Poudel");
 			  Thread.sleep(2000);
-			  driver.findElement(By.xpath("//input[@name='UserName']")).sendKeys("SurajPoudel");
+			  driver.findElement(By.xpath("//input[@name='UserName']")).sendKeys("SouthPoudel");
 			  Thread.sleep(2000);
 			  driver.findElement(By.xpath("//input[@name='Console']")).sendKeys("Xbox, PS5");
 			  Thread.sleep(2000);
@@ -115,6 +115,34 @@ public class TestGameFinder {
 			  Thread.sleep(2000);
 			  Assert.assertEquals(expected2, result2);
 		 }
+	   @Test
+	   public void testSeeUsers() throws Exception {
+		   	  driver.get("http://ec2-3-21-129-247.us-east-2.compute.amazonaws.com:8080/GameFriendFinder/MainPage.html"); 
+			  driver.manage().window().maximize();
+			  Thread.sleep(2000);
+			  driver.findElement(By.xpath("//div[@class='user']/a[@href='/GameFriendFinder/SimpleSearchHB.html']")).click();
+			  Thread.sleep(2000);
+			  
+			  driver.findElement(By.xpath("//input[@name='keyword']")).sendKeys("S");
+			  Thread.sleep(2000);
+			  driver.findElement(By.xpath("//input[@value='Search']")).click();
+			  Thread.sleep(2000);
+			  String expected = "ALL USERS";
+			  String result = driver.findElement(By.xpath("//body/h1")).getText();
+			  Thread.sleep(2000);
+			  Assert.assertEquals(expected, result);
+		   }
+	   
+	   @Test
+	   public void testSeeAllUsers() throws Exception {
+		   	  driver.get("http://ec2-3-21-129-247.us-east-2.compute.amazonaws.com:8080/GameFriendFinder/MainPage.html"); 
+			  driver.manage().window().maximize();
+			  Thread.sleep(2000);
+			  driver.findElement(By.xpath("//div[@class='user']/a[@href='/GameFriendFinder/SimpleSearchHB.html']")).click();
+			  Thread.sleep(2000);
+			  driver.findElement(By.xpath("//input[@value='Search']")).click();
+			  Thread.sleep(2000);
+		   }
 	   
 	   @Test
 	   public void testGamesone() throws Exception {
@@ -177,23 +205,7 @@ public class TestGameFinder {
 			  Assert.assertEquals(expected3, result3);
 		 }
 	   
-	   @Test
-	   public void testSeeUsers() throws Exception {
-		   	  driver.get("http://ec2-3-21-129-247.us-east-2.compute.amazonaws.com:8080/GameFriendFinder/MainPage.html"); 
-			  driver.manage().window().maximize();
-			  Thread.sleep(2000);
-			  driver.findElement(By.xpath("//div[@class='user']/a[@href='/GameFriendFinder/SimpleSearchHB.html']")).click();
-			  Thread.sleep(2000);
-			  
-			  driver.findElement(By.xpath("//input[@name='keyword']")).sendKeys("S");
-			  Thread.sleep(2000);
-			  driver.findElement(By.xpath("//input[@value='Search']")).click();
-			  Thread.sleep(2000);
-			  String expected = "ALL USERS";
-			  String result = driver.findElement(By.xpath("//body/h1")).getText();
-			  Thread.sleep(2000);
-			  Assert.assertEquals(expected, result);
-		   }
+	   
 
 	   @After
 	   public void tearDown() throws Exception {
